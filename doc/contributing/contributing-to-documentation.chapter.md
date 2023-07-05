@@ -1,23 +1,12 @@
 # Contributing to this documentation {#chap-contributing}
 
-The sources of the Nixpkgs manual are in the [doc](https://github.com/NixOS/nixpkgs/tree/master/doc) subdirectory of the Nixpkgs repository. The manual is still partially written in DocBook but it is progressively being converted to [Markdown](#sec-contributing-markup).
-
-You can quickly check your edits with `make`:
-
-```ShellSession
-$ cd /path/to/nixpkgs/doc
-$ nix-shell
-[nix-shell]$ make
-```
-
-If you experience problems, run `make debug` to help understand the docbook errors.
+The sources of the Nixpkgs manual are in the [doc](https://github.com/NixOS/nixpkgs/tree/master/doc) subdirectory of the Nixpkgs repository.
 
 After making modifications to the manual, it's important to build it before committing. You can do that as follows:
 
 ```ShellSession
 $ cd /path/to/nixpkgs/doc
 $ nix-shell
-[nix-shell]$ make clean
 [nix-shell]$ nix-build .
 ```
 
@@ -28,6 +17,9 @@ If the build succeeds, the manual will be in `./result/share/doc/nixpkgs/manual.
 As per [RFC 0072](https://github.com/NixOS/rfcs/pull/72), all new documentation content should be written in [CommonMark](https://commonmark.org/) Markdown dialect.
 
 Additional syntax extensions are available, all of which can be used in NixOS option documentation. The following extensions are currently used:
+
+- []{#ssec-contributing-markup-tables}
+  [GFM tables](https://github.github.com/gfm/#tables-extension-).
 
 - []{#ssec-contributing-markup-anchors}
   Explicitly defined **anchors** on headings, to allow linking to sections. These should be always used, to ensure the anchors can be linked even when the heading text changes, and to prevent conflicts between [automatically assigned identifiers](https://github.com/jgm/commonmark-hs/blob/master/commonmark-extensions/test/auto_identifiers.md).
@@ -114,5 +106,3 @@ Additional syntax extensions are available, all of which can be used in NixOS op
   >
   > watermelon
   > :   green fruit with red flesh
-
-For contributing to the legacy parts, please see [DocBook: The Definitive Guide](https://tdg.docbook.org/) or the [DocBook rocks! primer](https://web.archive.org/web/20200816233747/https://docbook.rocks/).
