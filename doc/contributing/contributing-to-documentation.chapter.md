@@ -5,9 +5,7 @@ The sources of the Nixpkgs manual are in the [doc](https://github.com/NixOS/nixp
 After making modifications to the manual, it's important to build it before committing. You can do that as follows:
 
 ```ShellSession
-$ cd /path/to/nixpkgs/doc
-$ nix-shell
-[nix-shell]$ nix-build .
+$ nix-build ./doc
 ```
 
 If the build succeeds, the manual will be in `./result/share/doc/nixpkgs/manual.html`.
